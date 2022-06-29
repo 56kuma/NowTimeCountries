@@ -1,0 +1,106 @@
+<!doctype html>
+<!--
+ Copyright 2021 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<html>
+<head>
+  <title>Now Time Countries</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+<body>
+
+  <div class="container">
+    <!-- <h1>Now Time Countries</h1> -->
+    <span class="display-1 border-bottom">Now Time Countries</span>
+
+    <div class="m-2"><h1>Year：{{ yearNow }}</h1></div>
+    <table class="table">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col"><h1>#</h1></th>
+          <th scope="col"><h1>Country</h1></th>
+          <th scope="col"><h1>Now Time</h1></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-light">
+          <th scope="row"><h1>1</h1></th>
+          <td><h1>Japan</h1></td>
+          <td><h1>{{ japanTime }}</h1></td>
+        </tr>
+        <tr>
+          <th scope="row"><h1>2</h1></th>
+          <td><h1>New Delhi</h1></td>
+          <td><h1>{{ newdelhiTime }}</h1></td>
+        </tr>
+        <tr class="table-light">
+          <th scope="row"><h1>3</h1></th>
+          <td><h1>London</h1></td>
+          <td><h1>{{ londonTime }}</h1></td>
+        </tr>
+        <tr>
+          <th scope="row"><h1>4</h1></th>
+          <td><h1>Texas</h1></td>
+          <td><h1>{{ texasTime }}</h1></td>
+        </tr>
+        <tr  class="table-light">
+          <th scope="row"><h1>5</h1></th>
+          <td><h1>Houston</h1></td>
+          <td><h1>{{ houstonTime }}</h1></td>
+        </tr>
+        <tr>
+          <th scope="row"><h1>6</h1></th>
+          <td><h1>Seattle</h1></td>
+          <td><h1>{{ seattleTime }}</h1></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" onclick="window.location.reload();"><h1>Reload</h1></button>
+  </div>
+  <!-- <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+          <a href="#tab1" class="nav-link active" data-toggle="tab">タブ1</a>
+      </li>
+      <li class="nav-item">
+          <a href="#tab2" class="nav-link" data-toggle="tab">タブ2</a>
+      </li>
+      <li class="nav-item">
+          <a href="#tab3" class="nav-link" data-toggle="tab">タブ3</a>
+      </li>
+      <li class="nav-item">
+          <a href="#tab4" class="nav-link" data-toggle="tab">タブ4</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+        <div id="tab1" class="tab-pane active">
+            タブ1のコンテンツが入ります
+        </div>
+        <div id="tab2" class="tab-pane">
+            タブ2のコンテンツが入ります
+        </div>
+        <div id="tab3" class="tab-pane">
+            タブ3のコンテンツが入ります
+        </div>
+        <div id="tab4" class="tab-pane">
+            タブ4のコンテンツが入ります
+        </div>
+    </div>
+  </div> -->
+</body>
+</html>
