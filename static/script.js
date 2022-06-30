@@ -7,7 +7,8 @@
 // 初期値設定
 window.onload = function () {
     // Set Japan Date Time 
-    let nowJapanDateTime = moment().add(9, 'hours')
+    // let nowJapanDateTime = moment().add(9, 'hours')
+    let nowJapanDateTime = moment()
     document.getElementById("inputDateJapan").value = nowJapanDateTime.format("YYYY-MM-DD");
     document.getElementById("inputTimeJapan").value = nowJapanDateTime.format("HH:mm")
 
