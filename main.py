@@ -19,7 +19,7 @@ def root():
     # ロンドン（+1h）
     london_time = (dt_now + datetime.timedelta(hours=1)).strftime('%m/%d %H:%M')
 
-    # テキサス（-6h）
+    # テキサス（-5h）
     texas_time = (dt_now + datetime.timedelta(hours=-5)).strftime('%m/%d %H:%M')
 
     # ヒューストン（-6h）
