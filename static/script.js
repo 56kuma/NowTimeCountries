@@ -1,21 +1,18 @@
 'use strict';
 
-// window.addEventListener('load', function () {
-//   console.log("Hello World!");
-// });
-
 // 初期値設定
 window.onload = function () {
     // Set Japan Date Time 
-    // let nowJapanDateTime = moment().add(9, 'hours')
-    let nowJapanDateTime = moment()
-    document.getElementById("inputDateJapan").value = nowJapanDateTime.format("YYYY-MM-DD");
-    document.getElementById("inputTimeJapan").value = nowJapanDateTime.format("HH:mm")
+    let nowJapanDateTime = luxon.DateTime.local().setZone('utc').plus({ hours: 9 })
+    document.getElementById("inputDateJapan").value = nowJapanDateTime.toFormat('yyyy-MM-dd');
+    document.getElementById("dayJapan").value = nowJapanDateTime.setLocale('en').toFormat('EEE')
+    document.getElementById("inputTimeJapan").value = nowJapanDateTime.toFormat('HH:mm')
 
     // Set New delhi Date Time
-    let newdlhiDateTime = nowJapanDateTime.subtract(3.5, 'hours')
-    document.getElementById("newdelhi_YYYYMMDD").value = newdlhiDateTime.format("YYYY-MM-DD");
-    document.getElementById("newdelh_HHmm").value = newdlhiDateTime.format("HH:mm");
+    let newdlhiDateTime = luxon.DateTime.local().setZone('utc').plus({ hours: 5.5 })
+    document.getElementById("newdelhi_YYYYMMDD").value = newdlhiDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("newdelhi_day").value = newdlhiDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("newdelh_HHmm").value = newdlhiDateTime.toFormat('HH:mm');
   }
 
 // Japan Date の変更を検知
@@ -25,10 +22,15 @@ function inputChange(){
     let changedJapanDate = document.getElementById("inputDateJapan").value;
     let changedJapanTime = document.getElementById("inputTimeJapan").value;
 
+    // Japan
+    let changedJapanDateTime = luxon.DateTime.fromISO(changedJapanDate + 'T' + changedJapanTime )
+    document.getElementById("dayJapan").value = changedJapanDateTime.setLocale('en').toFormat('EEE')
+
     // New delhi 
-    let changedNewdlhiDateTime = moment(changedJapanDate + ' ' + changedJapanTime ).subtract(3.5,'hour')
-    document.getElementById("newdelhi_YYYYMMDD").value = changedNewdlhiDateTime.format("YYYY-MM-DD");
-    document.getElementById("newdelh_HHmm").value = changedNewdlhiDateTime.format("HH:mm");
+    let changedNewdlhiDateTime = changedJapanDateTime.minus({hours: 3.5})
+    document.getElementById("newdelhi_YYYYMMDD").value = changedNewdlhiDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("newdelhi_day").value = changedNewdlhiDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("newdelh_HHmm").value = changedNewdlhiDateTime.toFormat('HH:mm');
 
 }
 

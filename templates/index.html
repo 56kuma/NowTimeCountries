@@ -22,7 +22,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <!-- <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
 </head>
@@ -43,7 +43,7 @@
     </ul>
     <div class="tab-content">
       <div id="tab1" class="tab-pane active">
-        <table class="table">
+        <table class="table table-hover">
           <thead>
             <tr class="table-dark">
               <th scope="col"><h1>#</h1></th>
@@ -87,12 +87,13 @@
         <button type="button" class="btn btn-success" onclick="window.location.reload();"><h1>Reload</h1></button>
       </div>
       <div id="tab2" class="tab-pane">
-        <table class="table">
+        <table class="table table-hover">
           <thead>
             <tr class="table-dark">
               <th scope="col"><h1>#</h1></th>
               <th scope="col"><h1>Country</h1></th>
               <th scope="col"><h1>Date</h1></th>
+              <th scope="col"><h1>Day</h1></th>
               <th scope="col"><h1>Time</h1></th>
             </tr>
           </thead>
@@ -104,6 +105,9 @@
                 <input type="Date" class="form-control-lg" id="inputDateJapan" oninput="inputChange()">
               </h1></td>
               <td><h1>
+                <output id="dayJapan"></output>
+              </h1></td>
+              <td><h1>
                 <input type="Time" class="form-control-lg" id="inputTimeJapan" oninput="inputChange()">
               </h1></td>
             </tr>
@@ -112,6 +116,9 @@
               <td><h1>New Delhi</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="newdelhi_YYYYMMDD" aria-label="Disabled input example" disabled readonly>
+              </h1></td>
+              <td><h1>
+                <output id="newdelhi_day"></output>
               </h1></td>
               <td><h1>
                 <input type="Time" class="form-control-lg" id="newdelh_HHmm" aria-label="Disabled input example" disabled readonly>
