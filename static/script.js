@@ -30,7 +30,7 @@ window.onload = function () {
     let houstonDateTime = luxon.DateTime.local().setZone('utc').minus({ hours: 6 })
     document.getElementById("houston_YYYYMMDD").value = houstonDateTime.toFormat("yyyy-MM-dd");
     document.getElementById("houston_day").value = houstonDateTime.setLocale('en').toFormat('EEE');
-    document.getElementById("houstonHHmm").value = houstonDateTime.toFormat('HH:mm');
+    document.getElementById("houston_HHmm").value = houstonDateTime.toFormat('HH:mm');
 
     // Set Seattle Date Time
     let seattleDateTime = luxon.DateTime.local().setZone('utc').minus({ hours: 7 })
