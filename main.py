@@ -28,6 +28,10 @@ def root():
     # シアトル（-7h）
     seattle_time = (dt_now + datetime.timedelta(hours=-7)).strftime('%m/%d %H:%M')
 
+    # ハワイ（-10h）
+    hawaii_time = (dt_now + datetime.timedelta(hours=-10)).strftime('%m/%d %H:%M')
+
+
     return render_template('index.html',
                             yearNow=year,
                             japanTime=japan_time,
@@ -35,7 +39,8 @@ def root():
                             londonTime=london_time,
                             texasTime=texas_time,
                             houstonTime=houston_time,
-                            seattleTime=seattle_time)
+                            seattleTime=seattle_time,
+                            hawaiiTime=hawaii_time)
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App

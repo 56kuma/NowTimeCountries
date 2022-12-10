@@ -38,6 +38,12 @@ window.onload = function () {
     document.getElementById("seattle_day").value = seattleDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("seattle_HHmm").value = seattleDateTime.toFormat('HH:mm');
 
+    // Set Hawaii Date Time
+    let hawaiiDateTime = luxon.DateTime.local().setZone('utc').minus({ hours: 10 })
+    document.getElementById("hawaii_YYYYMMDD").value = hawaiiDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("hawaii_day").value = hawaiiDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("hawaii_HHmm").value = hawaiiDateTime.toFormat('HH:mm');
+
   }
 
 // Japan Date の変更を検知
@@ -80,6 +86,12 @@ function inputChange(){
     document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
     document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+    // Hawaii(-10h)
+    let changedHawaiiDateTime = changedJapanDateTime.minus({hours:19})
+    document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
 
 }
 
@@ -125,6 +137,13 @@ function inputChangeNewDelhi(){
   document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedNewDelhiDateTime.minus({hours:15.5})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
 }
 
 // London
@@ -168,6 +187,12 @@ function inputChangeLondon(){
   document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
 
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedLondonDateTime.minus({hours:11})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
 }
 
 // Texas
@@ -210,6 +235,12 @@ function inputChangeTexas(){
   document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedTexasDateTime.minus({hours:5})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
 
 }
 
@@ -255,6 +286,12 @@ function inputChangeHouston(){
   document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
 
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedHoustonDateTime.minus({hours:4})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
 }
 
 // Seattle
@@ -299,5 +336,59 @@ function inputChangeSeattle(){
   // Seattle(-7h)
   document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
 
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedSeattleDateTime.minus({hours:3})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
 }
 
+// Hawaii
+function inputChangeHawaii(){
+
+  // Get Datetime at Houston
+  let changedHawaiiDate = document.getElementById("hawaii_YYYYMMDD").value;
+  let changedHawaiiTime = document.getElementById("hawaii_HHmm").value;
+  let changedHawaiiDateTime = luxon.DateTime.fromISO(changedHawaiiDate + 'T' + changedHawaiiTime)
+
+  // Japan(+9h)
+  let changedJapanDateTime = changedHawaiiDateTime.plus({hours:19});
+  document.getElementById("inputDateJapan").value = changedJapanDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("dayJapan").value = changedJapanDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("inputTimeJapan").value = changedJapanDateTime.toFormat('HH:mm');
+
+  // New delhi(+5.5h) 
+  let changedNewDelhiDateTime = changedHawaiiDateTime.plus({hours:15.5});
+  document.getElementById("newdelhi_YYYYMMDD").value = changedNewDelhiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
+
+  // London(+1h)
+  let changedLondonDateTime = changedHawaiiDateTime.plus({hours:11})
+  document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Texas(-5h)
+  let changedTexasDateTime = changedHawaiiDateTime.plus({hours:5})
+  document.getElementById("texas_YYYYMMDD").value = changedTexasDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("texas_day").value = changedTexasDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("texas_HHmm").value = changedTexasDateTime.toFormat('HH:mm');
+
+  // Houston(-6h)
+  let changedHoustonDateTime = changedHawaiiDateTime.plus({hours:4})
+  document.getElementById("houston_YYYYMMDD").value = changedHoustonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("houston_day").value = changedHoustonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("houston_HHmm").value = changedHoustonDateTime.toFormat('HH:mm');
+
+  // Seattle(-7h)
+  let changedSeattleDateTime = changedHawaiiDateTime.plus({hours:3})
+  document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  
+}

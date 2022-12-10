@@ -82,6 +82,11 @@
               <td><h1>Seattle</h1></td>
               <td><h1>{{ seattleTime }}</h1></td>
             </tr>
+            <tr>
+              <th scope="row"><h1>7</h1></th>
+              <td><h1>Hawaii</h1></td>
+              <td><h1>{{ hawaiiTime }}</h1></td>
+            </tr>
           </tbody>
         </table>
         <button type="button" class="btn btn-success" onclick="window.location.reload();"><h1>Reload</h1></button>
@@ -174,6 +179,19 @@
               </h1></td>
               <td><h1>
                 <input type="Time" class="form-control-lg" id="seattle_HHmm" oninput="inputChangeSeattle()">
+              </h1></td>
+            </tr>
+            <tr class="table-light">
+              <th scope="row"><h1>7</h1></th>
+              <td><h1>Hawaii</h1></td>
+              <td><h1>
+                <input type="Date" class="form-control-lg" id="hawaii_YYYYMMDD" oninput="inputChangeHawaii()">
+              </h1></td>
+              <td><h1>
+                <output id="hawaii_day"></output>
+              </h1></td>
+              <td><h1>
+                <input type="Time" class="form-control-lg" id="hawaii_HHmm" oninput="inputChangeHawaii()">
               </h1></td>
             </tr>
           </tbody>
