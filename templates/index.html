@@ -64,26 +64,41 @@
             </tr>
             <tr class="table-light">
               <th scope="row"><h1>3</h1></th>
+              <td><h1>Germany</h1></td>
+              <td><h1>{{ germanyTime }}</h1></td>
+            </tr>
+            <tr>
+              <th scope="row"><h1>4</h1></th>
+              <td><h1>Spain</h1></td>
+              <td><h1>{{ spainTime }}</h1></td>
+            </tr>
+            <tr class="table-light">
+              <th scope="row"><h1>5</h1></th>
               <td><h1>London</h1></td>
               <td><h1>{{ londonTime }}</h1></td>
             </tr>
             <tr>
-              <th scope="row"><h1>4</h1></th>
-              <td><h1>Texas</h1></td>
-              <td><h1>{{ texasTime }}</h1></td>
-            </tr>
-            <tr class="table-light">
-              <th scope="row"><h1>5</h1></th>
-              <td><h1>Houston</h1></td>
-              <td><h1>{{ houstonTime }}</h1></td>
-            </tr>
-            <tr>
               <th scope="row"><h1>6</h1></th>
-              <td><h1>Seattle</h1></td>
-              <td><h1>{{ seattleTime }}</h1></td>
+              <td><h1>Washington, D.C.</h1></td>
+              <td><h1>{{ washingtonTime }}</h1></td>
             </tr>
             <tr class="table-light">
               <th scope="row"><h1>7</h1></th>
+              <td><h1>Texas</h1></td>
+              <td><h1>{{ texasTime }}</h1></td>
+            </tr>
+            <tr>
+              <th scope="row"><h1>8</h1></th>
+              <td><h1>Houston</h1></td>
+              <td><h1>{{ houstonTime }}</h1></td>
+            </tr>
+            <tr class="table-light">
+              <th scope="row"><h1>9</h1></th>
+              <td><h1>Seattle</h1></td>
+              <td><h1>{{ seattleTime }}</h1></td>
+            </tr>
+            <tr>
+              <th scope="row"><h1>10</h1></th>
               <td><h1>Hawaii</h1></td>
               <td><h1>{{ hawaiiTime }}</h1></td>
             </tr>
@@ -91,6 +106,7 @@
         </table>
         <button type="button" class="btn btn-success" onclick="window.location.reload();"><h1>Reload</h1></button>
       </div>
+      <!-- ここから 二つ目のタブ -->
       <div id="tab2" class="tab-pane">
         <table class="table table-hover">
           <thead>
@@ -131,6 +147,32 @@
             </tr>
             <tr class="table-light">
               <th scope="row"><h1>3</h1></th>
+              <td><h1>Germany</h1></td>
+              <td><h1>
+                <input type="Date" class="form-control-lg" id="germany_YYYYMMDD" oninput="inputChangeGermany()">
+              </h1></td>
+              <td><h1>
+                <output id="germany_day"></output>
+              </h1></td>
+              <td><h1>
+                <input type="Time" class="form-control-lg" id="germany_HHmm" oninput="inputChangeGermany()">
+              </h1></td>
+            </tr>
+            <tr>
+              <th scope="row"><h1>4</h1></th>
+              <td><h1>Spain</h1></td>
+              <td><h1>
+                <input type="Date" class="form-control-lg" id="spain_YYYYMMDD" oninput="inputChangeSpain()">
+              </h1></td>
+              <td><h1>
+                <output id="spain_day"></output>
+              </h1></td>
+              <td><h1>
+                <input type="Time" class="form-control-lg" id="spain_HHmm" oninput="inputChangeSpain()">
+              </h1></td>
+            </tr>      
+            <tr class="table-light">
+              <th scope="row"><h1>5</h1></th>
               <td><h1>London</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="london_YYYYMMDD" oninput="inputChangeLondon()">
@@ -143,7 +185,20 @@
               </h1></td>
             </tr>
             <tr>
-              <th scope="row"><h1>4</h1></th>
+              <th scope="row"><h1>6</h1></th>
+              <td><h1>Washington, D.C</h1></td>
+              <td><h1>
+                <input type="Date" class="form-control-lg" id="washington_YYYYMMDD" oninput="inputChangeWashington()">
+              </h1></td>
+              <td><h1>
+                <output id="washington_day"></output>
+              </h1></td>
+              <td><h1>
+                <input type="Time" class="form-control-lg" id="washington_HHmm" oninput="inputChangeWashington()">
+              </h1></td>
+            </tr>
+            <tr class="table-light">
+              <th scope="row"><h1>7</h1></th>
               <td><h1>Texas</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="texas_YYYYMMDD" oninput="inputChangeTexas()">
@@ -155,8 +210,8 @@
                 <input type="Time" class="form-control-lg" id="texas_HHmm" oninput="inputChangeTexas()">
               </h1></td>
             </tr>      
-            <tr class="table-light">
-              <th scope="row"><h1>5</h1></th>
+            <tr>
+              <th scope="row"><h1>8</h1></th>
               <td><h1>Houston</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="houston_YYYYMMDD" oninput="inputChangeHouston()">
@@ -168,8 +223,8 @@
                 <input type="Time" class="form-control-lg" id="houston_HHmm" oninput="inputChangeHouston()">
               </h1></td>
             </tr>      
-            <tr>
-              <th scope="row"><h1>6</h1></th>
+            <tr class="table-light">
+              <th scope="row"><h1>9</h1></th>
               <td><h1>Seattle</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="seattle_YYYYMMDD" oninput="inputChangeSeattle()">
@@ -181,8 +236,8 @@
                 <input type="Time" class="form-control-lg" id="seattle_HHmm" oninput="inputChangeSeattle()">
               </h1></td>
             </tr>
-            <tr class="table-light">
-              <th scope="row"><h1>7</h1></th>
+            <tr>
+              <th scope="row"><h1>10</h1></th>
               <td><h1>Hawaii</h1></td>
               <td><h1>
                 <input type="Date" class="form-control-lg" id="hawaii_YYYYMMDD" oninput="inputChangeHawaii()">

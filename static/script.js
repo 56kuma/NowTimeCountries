@@ -14,11 +14,29 @@ window.onload = function () {
     document.getElementById("newdelhi_day").value = newdlhiDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("newdelhi_HHmm").value = newdlhiDateTime.toFormat('HH:mm');
 
+    // Set Germany Date Time
+    let germanyDateTime = luxon.DateTime.local().setZone('utc').plus({ hours: 2 })
+    document.getElementById("germany_YYYYMMDD").value = germanyDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("germany_day").value = germanyDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("germany_HHmm").value = germanyDateTime.toFormat('HH:mm');
+
+    // Set Germany Date Time
+    let spainDateTime = luxon.DateTime.local().setZone('utc').plus({ hours: 2 })
+    document.getElementById("spain_YYYYMMDD").value = spainDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("spain_day").value = spainDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("spain_HHmm").value = spainDateTime.toFormat('HH:mm');
+    
     // Set London Date Time
     let londonDateTime = luxon.DateTime.local().setZone('utc').plus({ hours: 1 })
     document.getElementById("london_YYYYMMDD").value = londonDateTime.toFormat("yyyy-MM-dd");
     document.getElementById("london_day").value = londonDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("london_HHmm").value = londonDateTime.toFormat('HH:mm');
+
+    // Set Washington, D.C. Date Time
+    let washingtonDateTime = luxon.DateTime.local().setZone('utc').minus({ hours: 4 })
+    document.getElementById("washington_YYYYMMDD").value = washingtonDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("washington_day").value = washingtonDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("washington_HHmm").value = washingtonDateTime.toFormat('HH:mm');
 
     // Set Texas Date Time
     let texasDateTime = luxon.DateTime.local().setZone('utc').minus({ hours: 5 })
@@ -63,11 +81,29 @@ function inputChange(){
     document.getElementById("newdelhi_day").value = changedNewdlhiDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("newdelhi_HHmm").value = changedNewdlhiDateTime.toFormat('HH:mm');
 
+    // Germany(+2h)
+    let changedGermanyDateTime = changedJapanDateTime.minus({hours: 7})
+    document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+    // Spain(+2h)
+    let changedSpainDateTime = changedJapanDateTime.minus({hours: 7})
+    document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
     // London(+1h)
     let changedLondonDateTime = changedJapanDateTime.minus({hours: 8})
     document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
     document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
     document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+    // Washington, D.C.(-4h)
+    let changedWashingtonDateTime = changedJapanDateTime.minus({hours: 13})
+    document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+    document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+    document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
     // Texas(-5h)
     let changedTexasDateTime = changedJapanDateTime.minus({hours: 14})
@@ -114,11 +150,29 @@ function inputChangeNewDelhi(){
   // New delhi(+5.5h) 
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedNewDelhiDateTime.minus({hours:3.5})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+  // Spain(+2h)
+  let changedSpainDateTime = changedNewDelhiDateTime.minus({hours: 3.5})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
   // London(+1h)
   let changedLondonDateTime = changedNewDelhiDateTime.minus({hours:4.5})
   document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedNewDelhiDateTime.minus({hours: 9.5})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
   // Texas(-5h)
   let changedTexasDateTime = changedNewDelhiDateTime.minus({hours:10.5})
@@ -146,6 +200,142 @@ function inputChangeNewDelhi(){
 
 }
 
+
+// Germanyの変更を検知
+function inputChangeGermany(){
+  // Get Datetime at Germany
+  let changedGermanyDate = document.getElementById("germany_YYYYMMDD").value;
+  let changedGermanyTime = document.getElementById("germany_HHmm").value;
+
+  let changedGermanyDateTime = luxon.DateTime.fromISO(changedGermanyDate + 'T' + changedGermanyTime)
+
+  // Japan(+9h)
+  let changedJapanDateTime = changedGermanyDateTime.plus({hours:7});
+  document.getElementById("inputDateJapan").value = changedJapanDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("dayJapan").value = changedJapanDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("inputTimeJapan").value = changedJapanDateTime.toFormat('HH:mm');
+
+  // New delhi(+5.5h) 
+  let changedNewDelhiDateTime = changedGermanyDateTime.plus({hours:3.5});
+  document.getElementById("newdelhi_YYYYMMDD").value = changedNewDelhiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
+
+  // Germany(+2h)
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  
+  // Spain(+2h)
+  let changedSpainDateTime = changedGermanyDateTime
+  // let changedSpainDateTime = changedGermanyDateTime.plus({hours:0});
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+  
+  // London(+1h)
+  let changedLondonDateTime = changedGermanyDateTime.minus({hours:4.5})
+  document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedGermanyDateTime.minus({hours: 5})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
+
+  // Texas(-5h)
+  let changedTexasDateTime = changedGermanyDateTime.minus({hours:6})
+  document.getElementById("texas_YYYYMMDD").value = changedTexasDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("texas_day").value = changedTexasDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("texas_HHmm").value = changedTexasDateTime.toFormat('HH:mm');
+
+  // Houston(-6h)
+  let changedHoustonDateTime = changedGermanyDateTime.minus({hours:7})
+  document.getElementById("houston_YYYYMMDD").value = changedHoustonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("houston_day").value = changedHoustonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("houston_HHmm").value = changedHoustonDateTime.toFormat('HH:mm');
+
+  // Seattle(-7h)
+  let changedSeattleDateTime = changedGermanyDateTime.minus({hours:8})
+  document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedGermanyDateTime.minus({hours:11})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
+}
+
+// Spainの変更を検知
+function inputChangeSpain(){
+  // Get Datetime at Spain
+  let changedSpainDate = document.getElementById("spain_YYYYMMDD").value;
+  let changedSpainTime = document.getElementById("spain_HHmm").value;
+
+  let changedSpainDateTime = luxon.DateTime.fromISO(changedSpainDate + 'T' + changedSpainTime)
+
+  // Japan(+9h)
+  let changedJapanDateTime = changedSpainDateTime.plus({hours:7});
+  document.getElementById("inputDateJapan").value = changedJapanDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("dayJapan").value = changedJapanDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("inputTimeJapan").value = changedJapanDateTime.toFormat('HH:mm');
+
+  // New delhi(+5.5h) 
+  let changedNewDelhiDateTime = changedSpainDateTime.plus({hours:3.5});
+  document.getElementById("newdelhi_YYYYMMDD").value = changedNewDelhiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
+
+  // Germany(+2h)
+  let changedGermanyDateTime = changedSpainDateTime
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+  
+  // Spain(+2h)
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  
+  // London(+1h)
+  let changedLondonDateTime = changedSpainDateTime.minus({hours:1})
+  document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedSpainDateTime.minus({hours: 5})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
+  
+  // Texas(-5h)
+  let changedTexasDateTime = changedSpainDateTime.minus({hours:6})
+  document.getElementById("texas_YYYYMMDD").value = changedTexasDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("texas_day").value = changedTexasDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("texas_HHmm").value = changedTexasDateTime.toFormat('HH:mm');
+
+  // Houston(-6h)
+  let changedHoustonDateTime = changedSpainDateTime.minus({hours:7})
+  document.getElementById("houston_YYYYMMDD").value = changedHoustonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("houston_day").value = changedHoustonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("houston_HHmm").value = changedHoustonDateTime.toFormat('HH:mm');
+
+  // Seattle(-7h)
+  let changedSeattleDateTime = changedSpainDateTime.minus({hours:8})
+  document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedSpainDateTime.minus({hours:11})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+}
+
+
 // London
 function inputChangeLondon(){
   // Get Datetime at London
@@ -166,9 +356,27 @@ function inputChangeLondon(){
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedLondonDateTime.plus({hours:1})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+  // Spain(+2h)
+  let changedSpainDateTime = changedLondonDateTime.plus({hours:1})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
   // London(+1h)
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
 
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedLondonDateTime.minus({hours: 5})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
+  
   // Texas(-5h)
   let changedTexasDateTime = changedLondonDateTime.minus({hours:6})
   document.getElementById("texas_YYYYMMDD").value = changedTexasDateTime.toFormat("yyyy-MM-dd");
@@ -195,6 +403,73 @@ function inputChangeLondon(){
 
 }
 
+// Washington, D.C.
+function inputChangeWashington(){
+  // Get Datetime at Washington, D.C.
+  let changedWashingtonDate = document.getElementById("washington_YYYYMMDD").value;
+  let changedWashingtonTime = document.getElementById("washington_HHmm").value;
+
+  let changedWashingtonDateTime = luxon.DateTime.fromISO(changedWashingtonDate + 'T' + changedWashingtonTime)
+
+  // Japan(+9h)
+  let changedJapanDateTime = changedWashingtonDateTime.plus({hours:13});
+  document.getElementById("inputDateJapan").value = changedJapanDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("dayJapan").value = changedJapanDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("inputTimeJapan").value = changedJapanDateTime.toFormat('HH:mm');
+
+  // New delhi(+5.5h) 
+  let changedNewDelhiDateTime = changedWashingtonDateTime.plus({hours:9.5});
+  document.getElementById("newdelhi_YYYYMMDD").value = changedNewDelhiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
+
+  // Germany(+2h)
+  let changedGermanyDateTime = changedWashingtonDateTime.plus({hours:6})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+  
+  // Spain(+2h)
+  let changedSpainDateTime = changedWashingtonDateTime.plus({hours:6})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
+  // London(+1h)
+  let changedLondonDateTime = changedWashingtonDateTime.plus({hours:5})
+  document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+
+  // Texas(-5h)
+  let changedTexasDateTime = changedWashingtonDateTime.minus({hours:1})
+  document.getElementById("texas_YYYYMMDD").value = changedTexasDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("texas_day").value = changedTexasDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("texas_HHmm").value = changedTexasDateTime.toFormat('HH:mm');
+
+  // Houston(-6h)
+  let changedHoustonDateTime = changedWashingtonDateTime.minus({hours:2})
+  document.getElementById("houston_YYYYMMDD").value = changedHoustonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("houston_day").value = changedHoustonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("houston_HHmm").value = changedHoustonDateTime.toFormat('HH:mm');
+
+  // Seattle(-7h)
+  let changedSeattleDateTime = changedWashingtonDateTime.minus({hours:3})
+  document.getElementById("seattle_YYYYMMDD").value = changedSeattleDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("seattle_day").value = changedSeattleDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("seattle_HHmm").value = changedSeattleDateTime.toFormat('HH:mm');
+
+  // Hawaii(-10h)
+  let changedHawaiiDateTime = changedWashingtonDateTime.minus({hours:6})
+  document.getElementById("hawaii_YYYYMMDD").value = changedHawaiiDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("hawaii_day").value = changedHawaiiDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("hawaii_HHmm").value = changedHawaiiDateTime.toFormat('HH:mm');
+
+}
+
 // Texas
 function inputChangeTexas(){
   // Get Datetime at Texas
@@ -215,11 +490,29 @@ function inputChangeTexas(){
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedTexasDateTime.plus({hours:7})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+  
+  // Spain(+2h)
+  let changedSpainDateTime = changedTexasDateTime.plus({hours:7})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
   // London(+1h)
   let changedLondonDateTime = changedTexasDateTime.plus({hours:6})
   document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedTexasDateTime.plus({hours:1})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
   // Texas(-5h)
   document.getElementById("texas_day").value = changedTexasDateTime.setLocale('en').toFormat('EEE');
@@ -265,11 +558,29 @@ function inputChangeHouston(){
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedHoustonDateTime.plus({hours:8})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+  // Spain(+2h)
+  let changedSpainDateTime = changedHoustonDateTime.plus({hours:8})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
   // London(+1h)
   let changedLondonDateTime = changedHoustonDateTime.plus({hours:7})
   document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedHoustonDateTime.plus({hours: 2})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
   // Texas(-5h)
   let changedTexasDateTime = changedHoustonDateTime.plus({hours:1})
@@ -315,11 +626,29 @@ function inputChangeSeattle(){
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedSeattleDateTime.plus({hours:9})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+  // Spain(+2h)
+  let changedSpainDateTime = changedSeattleDateTime.plus({hours:9})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+
   // London(+1h)
   let changedLondonDateTime = changedSeattleDateTime.plus({hours:8})
   document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedSeattleDateTime.plus({hours: 3})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
   // Texas(-5h)
   let changedTexasDateTime = changedSeattleDateTime.plus({hours:2})
@@ -364,11 +693,29 @@ function inputChangeHawaii(){
   document.getElementById("newdelhi_day").value = changedNewDelhiDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("newdelhi_HHmm").value = changedNewDelhiDateTime.toFormat('HH:mm');
 
+  // Germany(+2h)
+  let changedGermanyDateTime = changedHawaiiDateTime.plus({hours:12})
+  document.getElementById("germany_YYYYMMDD").value = changedGermanyDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("germany_day").value = changedGermanyDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("germany_HHmm").value = changedGermanyDateTime.toFormat('HH:mm');
+
+  // Spain(+2h)
+  let changedSpainDateTime = changedHawaiiDateTime.plus({hours:12})
+  document.getElementById("spain_YYYYMMDD").value = changedSpainDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("spain_day").value = changedSpainDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("spain_HHmm").value = changedSpainDateTime.toFormat('HH:mm');
+  
   // London(+1h)
   let changedLondonDateTime = changedHawaiiDateTime.plus({hours:11})
   document.getElementById("london_YYYYMMDD").value = changedLondonDateTime.toFormat("yyyy-MM-dd");
   document.getElementById("london_day").value = changedLondonDateTime.setLocale('en').toFormat('EEE');
   document.getElementById("london_HHmm").value = changedLondonDateTime.toFormat('HH:mm');
+
+  // Washington, D.C.(-4h)
+  let changedWashingtonDateTime = changedHawaiiDateTime.plus({hours: 6})
+  document.getElementById("washington_YYYYMMDD").value = changedWashingtonDateTime.toFormat("yyyy-MM-dd");
+  document.getElementById("washington_day").value = changedWashingtonDateTime.setLocale('en').toFormat('EEE');
+  document.getElementById("washington_HHmm").value = changedWashingtonDateTime.toFormat('HH:mm');
 
   // Texas(-5h)
   let changedTexasDateTime = changedHawaiiDateTime.plus({hours:5})

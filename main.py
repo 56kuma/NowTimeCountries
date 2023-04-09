@@ -16,8 +16,17 @@ def root():
     # ニューデリー（+5.5h）
     new_delhi_time = (dt_now + datetime.timedelta(hours=5.5)).strftime('%m/%d %H:%M') 
 
+    # ドイツ（+2h）
+    germany_time = (dt_now + datetime.timedelta(hours=2)).strftime('%m/%d %H:%M')
+
+    # スペイン（+2h）
+    spain_time = (dt_now + datetime.timedelta(hours=2)).strftime('%m/%d %H:%M')
+
     # ロンドン（+1h）
     london_time = (dt_now + datetime.timedelta(hours=1)).strftime('%m/%d %H:%M')
+
+    # ワシントン, D.C.（-4h）
+    washigton_time = (dt_now + datetime.timedelta(hours=-4)).strftime('%m/%d %H:%M')
 
     # テキサス（-5h）
     texas_time = (dt_now + datetime.timedelta(hours=-5)).strftime('%m/%d %H:%M')
@@ -37,6 +46,9 @@ def root():
                             japanTime=japan_time,
                             newdelhiTime=new_delhi_time,
                             londonTime=london_time,
+                            germanyTime=germany_time,
+                            spainTime=spain_time,
+                            washingtonTime=washigton_time,
                             texasTime=texas_time,
                             houstonTime=houston_time,
                             seattleTime=seattle_time,
